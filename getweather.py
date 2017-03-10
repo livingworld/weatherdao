@@ -20,7 +20,7 @@ def dumpTianqi(result):
             #weatherstring=weatherstring+item1[0]+item1[1]+'  '#通过这一步可以实现
     #weatherstring1=weatherstring+'\n'#查询记录换行，方便历史查询
     history_weather_list.append(weatherstring)#每次查询的记录保存在历史天气查询list当中
-    return(weatherstring)#返回天气查询的记录
+    return weatherstring#返回天气查询的记录
 
 '''result = requests.get(url, params, timeout)，发送get请求'''
 def fetchWeather(location):
@@ -34,10 +34,9 @@ def fetchWeather(location):
         'location': location,
         'language': LANGUAGE,
         'unit': UNIT
-    },verify=True)
+    },verify=False)
     result = result.text
     result = json.loads(result)
-    print(result)
     return result
 
 def history_weather():
