@@ -8,6 +8,7 @@ from getweather import fetchWeather
 app = Flask(__name__)
 app.debug = True
 
+historyList = []
 @app.route('/', methods=['POST', 'GET'])
 def wechat():
     if request.method=='GET':
