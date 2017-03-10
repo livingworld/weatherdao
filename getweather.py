@@ -7,6 +7,13 @@ history_weather_list=[]#历史天气查询记录list
 def dumpTianqi(result):
     #最后进行解析
     dic = result
+    city=dic["results"][0]["location"]["name"]
+    weather=dic["results"][0]["now"]["text"]
+    temperature=dic["results"][0]["now"]["temperature"]
+    updates=dic["results"][0]["last_update"]
+    weather_info = ("%s 的天气情况是：%s，温度是：%s℃，数据更新时间为：%s") % (city, weather, temperature, updates)
+"""
+    dic = result
     weatherlist=[]#将读取的天气信息装进list内
     weatherlist.append(['城市:',dic["results"][0]["location"]["name"]])#读取返回的result中的字典内容，进行输出
     weatherlist.append(['天气:',dic["results"][0]["now"]["text"]])
@@ -21,7 +28,9 @@ def dumpTianqi(result):
     #weatherstring1=weatherstring+'\n'#查询记录换行，方便历史查询
     history_weather_list.append(weatherstring)#每次查询的记录保存在历史天气查询list当中
     #return weatherstring#返回天气查询的记录
-    return weatherstring
+    return weatherstring"""
+    history_weather_list.append(weather_info)
+    return weather_info
 
 '''result = requests.get(url, params, timeout)，发送get请求'''
 def fetchWeather(location):
