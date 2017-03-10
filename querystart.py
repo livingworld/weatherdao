@@ -78,3 +78,7 @@ def help():
 def history():
     text = ' '.join(historyList)
     return text
+    
+if __name__ == "__main__":
+    historyList = []
+    app.run(debug=True, host='0.0.0.0', port=80)
