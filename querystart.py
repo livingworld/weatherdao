@@ -57,15 +57,15 @@ def wechat():
             return response
 
 def weather(content):
-    try:
-        result = fetchWeather(content)
-        text = "{}的天气情况：{}; \n温度：{}℃; \n更新时间：{} \n".\
-            format(result["results"][0]["location"]["name"],result["results"][0]["now"]["text"],["results"][0]["now"]["temperature"],result["results"][0]["last_update"])
-        historyList.append(text)
+    #try:
+    result = fetchWeather(content)
+    text = "{}的天气情况：{}; \n温度：{}℃; \n更新时间：{} \n".\
+        format(result["results"][0]["location"]["name"],result["results"][0]["now"]["text"],["results"][0]["now"]["temperature"],result["results"][0]["last_update"])
+    historyList.append(text)
 
-    except Exception as e:
-        helpText = help()
-        text = '搜索不到您要的信息，请参照帮助信息操作。\n 帮助：\n' + helpText
+    #except Exception as e:
+     #   helpText = help()
+      #  text = '搜索不到您要的信息，请参照帮助信息操作。\n 帮助：\n' + helpText
 
     return text
 
