@@ -8,7 +8,6 @@ from getweather import fetchWeather
 app = Flask(__name__)
 app.debug = True
 
-historyList = []
 @app.route('/', methods=['POST', 'GET'])
 def wechat():
     if request.method=='GET':
@@ -30,8 +29,6 @@ def wechat():
         xml_recv = ET.fromstring(request.data)
         ToUserName = xml_recv.find("ToUserName").text
         FromUserName = xml_recv.find("FromUserName").text
-        # ToUserName = xml_recv.find("FromUserName").text
-        # FromUserName = xml_recv.find("ToUserName").text
         Content = xml_recv.find("Content").text
         xml_rep = "<xml>\
                     <ToUserName><![CDATA[%s]]></ToUserName>\
@@ -83,4 +80,5 @@ def history():
     return text
 
 if __name__ == '__main__':
+    historyList = []
     app.run(debug=True, host='0.0.0.0', port=80)
