@@ -11,24 +11,7 @@ def dumpTianqi(result):
     weather=dic["results"][0]["now"]["text"]
     temperature=dic["results"][0]["now"]["temperature"]
     updates=dic["results"][0]["last_update"]
-    weather_info = ("%s 的天气情况是：%s，温度是：%s℃，数据更新时间为：%s") % (city, weather, temperature, updates)
-"""
-    dic = result
-    weatherlist=[]#将读取的天气信息装进list内
-    weatherlist.append(['城市:',dic["results"][0]["location"]["name"]])#读取返回的result中的字典内容，进行输出
-    weatherlist.append(['天气:',dic["results"][0]["now"]["text"]])
-    weatherlist.append(['温度:',dic["results"][0]["now"]["temperature"]+'℃'])
-    weatherlist.append(['数据更新时间:',dic["results"][0]["last_update"]])
-    weatherlist.append(['查询天气的时间 :',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())])
-    #函数time.time()用于获取当前时间戳
-    weatherstring=''#将list内的查询的天气内容转化为字符串的形式，使返回的内容为字符串形式，方便控件调用。
-    for item1 in weatherlist:
-            weatherstring=weatherstring+''.join(item1)+'   '
-            #weatherstring=weatherstring+item1[0]+item1[1]+'  '#通过这一步可以实现
-    #weatherstring1=weatherstring+'\n'#查询记录换行，方便历史查询
-    history_weather_list.append(weatherstring)#每次查询的记录保存在历史天气查询list当中
-    #return weatherstring#返回天气查询的记录
-    return weatherstring"""
+    weather_info = "%s 的天气情况是：%s，温度是：%s℃，数据更新时间为：%s" % (city, weather, temperature, updates)
     history_weather_list.append(weather_info)
     return weather_info
 
