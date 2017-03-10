@@ -3,7 +3,7 @@ import time
 from flask import Flask, request, make_response
 import hashlib
 import xml.etree.ElementTree as ET
-from getweather import fetchWeather
+from getweather import fetchWeather,dumpTianqi
 
 app = Flask(__name__)
 app.debug = True
